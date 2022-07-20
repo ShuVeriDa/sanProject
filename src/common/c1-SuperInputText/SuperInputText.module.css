@@ -1,0 +1,21 @@
+.superInput:Focus {
+    outline: none;
+    display:block;
+    border-radius:4px;
+    transition: .3s border-color;
+    background-color: white;
+}
+
+.errorInput {
+    border: 3px solid lime;
+    background: #f14242;
+}
+
+.error {
+    color: red;
+}
+
+.input:focus {
+    outline: none;
+    border: 2px  solid lime;
+}
