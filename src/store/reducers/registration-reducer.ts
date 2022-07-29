@@ -1,5 +1,6 @@
 import {authAPI, RegisterRequestDataType} from "../../api/cards-api";
 import {Dispatch} from "redux";
+import {AppThunk} from "../store";
 
 const REGISTER_NEW_USER = 'REGISTER-NEW-USER'
 
@@ -25,10 +26,10 @@ export const registerNewUserAC = (success: boolean) => {
 }
 
 //thunk
-export const registerUserTC = (data: RegisterRequestDataType) => (dispath: Dispatch<RegisterActionsType>) => {
+export const registerUserTC = (data: RegisterRequestDataType):AppThunk => (dispatch) => {
    authAPI.register(data)
       .then((res) => {
-         dispath(registerNewUserAC(true))
+         dispatch(registerNewUserAC(true))
       })
       .catch((error) => {
 

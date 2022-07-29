@@ -14,6 +14,9 @@ export const authAPI = {
    },
    forgotPassword: (data: ForgotPassRequestDataType) => {
       return instance.post('/auth/forgot', data)
+   },
+   me: () => {
+      return instance.post('auth/me')
    }
 }
 
