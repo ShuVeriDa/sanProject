@@ -1,3 +1,10 @@
+.nav {
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
 .navLink {
     text-decoration: none;
     color: #0066ff;
