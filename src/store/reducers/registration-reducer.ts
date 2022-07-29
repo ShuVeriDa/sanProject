@@ -1,6 +1,7 @@
 import {authAPI, RegisterRequestDataType} from "../../api/cards-api";
 import {Dispatch} from "redux";
 import {AppThunk} from "../store";
+import {handleServerNetworkError} from "../../utils/error-utils";
 
 const REGISTER_NEW_USER = 'REGISTER-NEW-USER'
 
@@ -32,7 +33,7 @@ export const registerUserTC = (data: RegisterRequestDataType):AppThunk => (dispa
          dispatch(registerNewUserAC(true))
       })
       .catch((error) => {
-
+         handleServerNetworkError(error, dispatch)
       })
 }
 

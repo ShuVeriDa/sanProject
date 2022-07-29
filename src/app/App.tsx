@@ -8,6 +8,8 @@ import {EnterNewPass} from "../features/EnterNewPass/EnterNewPass";
 import {PassRecovery} from "../features/PassRecovery/PassRecovery";
 import {TestShowComponent} from "../features/TestShowComponent/TestShowComponent";
 import {Nav} from "../features/Nav/Nav";
+import {ErrorSnackbar} from "../common/ErrorSnackbar/ErrorSnackbar";
+import {Header} from "../features/Header/Header";
 
 export enum PATH {
    LOGIN = '/login',
@@ -22,7 +24,8 @@ export enum PATH {
 function App() {
   return (
     <div className="App">
-      <Nav />
+       <Header />
+
       <Routes>
         <Route path='login' element={<Login />} />
         <Route path='profile' element={<Profile />} />
@@ -33,6 +36,9 @@ function App() {
         <Route path='404' element={<h1 style={{display: "flex", justifyContent: 'center'}}>404: PAGE NOT FOUND</h1>} />
         <Route path='*' element={<Navigate to={'404'} />} />
       </Routes>
+       <Nav />
+
+       <ErrorSnackbar/>
     </div>
   );
 }

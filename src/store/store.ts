@@ -8,6 +8,7 @@ import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
 
 const rootReducer = combineReducers({
    registration: registrationReducer,
+   app: appReducer,
 })
 
 export const store = createStore(rootReducer, applyMiddleware(thunk))

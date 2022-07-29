@@ -1,5 +1,6 @@
 import {AppThunk} from "../store/store";
 import {authAPI} from "../api/cards-api";
+import {handleServerNetworkError} from "../utils/error-utils";
 
 const APP_SET_IS_INITIALIZED = 'APP/SET-IS-INITIALIZED'
 const APP_SET_ERROR = 'APP/SET-ERROR'
@@ -34,7 +35,7 @@ export const initializeAppTC = (): AppThunk => (dispatch) => {
          dispatch(setAppInitializedAC(true))
       })
       .catch(error => {
-
+         handleServerNetworkError(error, dispatch)
       })
 }
 
