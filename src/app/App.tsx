@@ -9,6 +9,16 @@ import {PassRecovery} from "../features/PassRecovery/PassRecovery";
 import {TestShowComponent} from "../features/TestShowComponent/TestShowComponent";
 import {Nav} from "../features/Nav/Nav";
 
+export enum PATH {
+   LOGIN = '/login',
+   REGISTRATION = '/registration',
+   PROFILE = '/profile',
+   NEW_PASSWORD = '/new_password',
+   FORGOT = '/forgot-password',
+   EXAMPLE = '/example',
+   NOT_FOUND = '/404',
+}
+
 function App() {
   return (
     <div className="App">
