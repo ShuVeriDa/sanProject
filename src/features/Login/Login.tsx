@@ -1,12 +1,12 @@
 import classes from './Login.module.css'
-import {useAppDispatch, } from "../../store/store";
-import {registerUserTC} from "../../store/reducers/registration-reducer";
-import {NavLink, } from "react-router-dom";
+import {useAppDispatch, useAppSelector,} from "../../store/store";
+import {Navigate, NavLink,} from "react-router-dom";
 import {useState} from "react";
 import {useFormik} from "formik";
 import {PATH} from "../../app/App";
 import {Button, Checkbox, FormControlLabel, IconButton, InputAdornment, TextField} from "@mui/material";
 import {Visibility, VisibilityOff} from "@mui/icons-material";
+import {loginTC} from "../../store/reducers/login-reducers";
 
 type FormikErrorType = {
    email?: string
@@ -16,6 +16,7 @@ type FormikErrorType = {
 
 export const Login = () => {
    const dispatch = useAppDispatch()
+   const isLoggedId = useAppSelector(state => state.login.isLoggedIn)
 
    const [isValid, setIsValid] = useState<boolean>(false)
    const [passwordShown, setPasswordShown] = useState<boolean>(false);
@@ -58,17 +59,19 @@ export const Login = () => {
       },
 
       onSubmit: values => {
-         dispatch(registerUserTC(values))
-         formik.resetForm()
+         dispatch(loginTC(values))
       },
    })
 
+   if (isLoggedId) {
+      return <Navigate to={PATH.PROFILE}/>
+   }
 
    return (
       <div className={classes.loginWrapper}>
          <div className={classes.login}>
             <form onSubmit={formik.handleSubmit}>
-               <h1 className={classes.title}>Sign Up</h1>
+               <h1 className={classes.title}>Sign In</h1>
                <div>
                   <TextField label="Email"
                              error={!!formik.errors.email && !!formik.touched.email}
@@ -115,13 +118,13 @@ export const Login = () => {
                           disabled={!isValid}
                           className={classes.btn}
                   >
-                     Sign Up
+                     Sign In
                   </Button>
                </div>
             </form>
             <div className={classes.signIn}>
                <span className={classes.info}>Already have an account?</span>
-               <NavLink to={PATH.PROFILE} className={classes.signInLink}>
+               <NavLink to={PATH.REGISTRATION} className={classes.signInLink}>
                   Sign Up
                </NavLink>
             </div>

@@ -1,7 +1,7 @@
 import classes from './Registration.module.css'
 import {useAppDispatch, useAppSelector} from "../../store/store";
 import {registerUserTC} from "../../store/reducers/registration-reducer";
-import {Navigate, NavLink, useNavigate} from "react-router-dom";
+import {Navigate, NavLink} from "react-router-dom";
 import {useState} from "react";
 import {useFormik} from "formik";
 import {PATH} from "../../app/App";
@@ -147,7 +147,7 @@ export const Registration = () => {
             </form>
             <div className={classes.signIn}>
                <span className={classes.info}>Don't have an account?</span>
-               <NavLink to={PATH.PROFILE} className={classes.signInLink}>
+               <NavLink to={PATH.LOGIN} className={classes.signInLink}>
                   Sign In
                </NavLink>
             </div>

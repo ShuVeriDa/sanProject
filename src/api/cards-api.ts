@@ -30,7 +30,7 @@ export type RegisterRequestDataType = {
 export type LoginRequestDataType = {
    email: string
    password: string
-   rememberMe: boolean
+   rememberMe?: boolean
 }
 
 export type ForgotPassRequestDataType = {

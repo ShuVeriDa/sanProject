@@ -3,11 +3,11 @@ import thunk, {ThunkAction, ThunkDispatch} from "redux-thunk";
 import {RegisterActionsType, registrationReducer} from "./reducers/registration-reducer";
 import {LoginActionsType, loginReducers} from "./reducers/login-reducers";
 import {appReducer, AppReducerActionsType} from "../app/app-reducer";
-import {profileReducers} from "./reducers/profile-reducers";
 import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
 
 const rootReducer = combineReducers({
    registration: registrationReducer,
+   login: loginReducers,
    app: appReducer,
 })
 
